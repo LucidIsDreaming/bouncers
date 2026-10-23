@@ -9,6 +9,7 @@
 
 #include "bn_sprite_items_dot.h"
 #include "bn_sprite_items_apple.h"
+#include "bn_sprite_items_bad_apple.h"
 
 // Set max/min x position to be the edges of the display
 static constexpr int HALF_SCREEN_WIDTH = bn::display::width() / 2;
@@ -133,10 +134,18 @@ int main() {
 
     bn::fixed y_spawn = 0;
 
+    //add new boolean to set up the sprite being interchangable
+    bool change_sprite = true;
+
     while(true) {
         // if A is pressed add a new bouncer
         if(bn::keypad::a_pressed()) {
             add_bouncer(bouncers, 0, y_spawn, random);
+            if(change_sprite){
+                change_sprite = false;
+            }else{
+                change_sprite = true;
+            }
         }
 
 
