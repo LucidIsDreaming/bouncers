@@ -1,4 +1,2 @@
 # Bouncers
-An exercise to learn about functions and classes.
-
-Please find instructions in [instructions.md](instructions.md).
+for my own extension I wanted to create a new sprite design that interchange every time the user presses the b button

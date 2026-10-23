@@ -167,9 +167,21 @@ int main() {
             b.update();
         }
 
-        y_spawn += 1;
         if(y_spawn > MAX_Y){
             y_spawn = MIN_Y;
+        }
+
+        //add a restart button
+        if(bn::keypad::start_pressed()) {
+            bouncers.clear();
+
+            y_spawn = 0;
+
+            change_sprite = true;
+        }
+        //adds y += 1 if restart button is not pressed
+        if(!bn::keypad::start_pressed()){
+            y_spawn += 1;
         }
 
 
