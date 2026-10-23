@@ -35,8 +35,9 @@ class Bouncer {
         bn::fixed y_speed;
 
         //create a constructor 
-        Bouncer(bn::fixed x_start, bn::fixed y_start, bn::random& random) : 
-            sprite(bn::sprite_items::apple.create_sprite(x_start, y_start)), 
+        Bouncer(bn::fixed x_start, bn::fixed y_start, bn::random& random, bool change_sprite) : 
+            sprite(change_sprite ? bn::sprite_items::apple.create_sprite(x_start, y_start) :
+            bn::sprite_items::bad_apple.create_sprite(x_start, y_start) ),
             x_speed(random.get_fixed(-3, 3)), y_speed(random.get_fixed(-3, 3)) {
 
 
@@ -108,10 +109,15 @@ bn::fixed average_x(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers){
     return x_average;
 }
 
-void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::fixed start_x, bn::fixed start_y, bn::random& random){
+void add_bouncer(bn::vector<Bouncer, 
+    MAX_BOUNCERS>& bouncers, 
+    bn::fixed start_x, 
+    bn::fixed start_y, 
+    bn::random& random, 
+    bool change_sprite){
     // Only add if we're below the maximum
     if(bouncers.size() < bouncers.max_size()) {
-        bouncers.push_back(Bouncer(start_x, start_y, random));
+        bouncers.push_back(Bouncer(start_x, start_y, random, change_sprite));
     }
 
 
