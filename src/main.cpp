@@ -146,7 +146,7 @@ int main() {
     while(true) {
         // if A is pressed add a new bouncer
         if(bn::keypad::a_pressed()) {
-            add_bouncer(bouncers, 0, y_spawn, random);
+            add_bouncer(bouncers, 0, y_spawn, random, change_sprite);
             if(change_sprite){
                 change_sprite = false;
             }else{
