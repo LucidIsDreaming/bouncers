@@ -33,9 +33,9 @@ class Bouncer {
         bn::fixed y_speed;
 
         //create a constructor 
-        Bouncer(bn::fixed x_start, bn::fixed y_start) : 
+        Bouncer(bn::fixed x_start, bn::fixed y_start, bn::random& random) : 
             sprite(bn::sprite_items::dot.create_sprite(x_start, y_start)), 
-            x_speed(BASE_SPEED), y_speed(BASE_SPEED) {
+            x_speed(random.get_fixed(-3, 3)), y_speed(random.get_fixed(-3, 3)) {
 
 
         }
@@ -58,19 +58,20 @@ class Bouncer {
                 x_speed *= -1;
             }
             // If we've gone off the screen on the left
+
             if(x < MIN_X) {
                 // Snap back to screen and reverse direction
                 x = MIN_X;
                 x_speed *= -1;
             }
-
+            //If we've gone off the screen on the bottom
             if(y > MAX_Y) {
                 // Snap back to screen and reverse direction
                 y = MAX_Y;
                 y_speed *= -1;
             }
 
-            
+            //If we've gone off the screen on the top
             if(y < MIN_Y) {
                 // Snap back to screen and reverse direction
                 y = MIN_Y;
@@ -115,6 +116,10 @@ void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::fixed start_x,
 }
 
 int main() {
+
+    //Make random speed generator
+
+
     bn::core::init();
 
     // Sprites and x speeds of bouncers
