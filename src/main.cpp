@@ -43,15 +43,19 @@ class Bouncer {
         void update () {
 
             bn::fixed x = sprite.x();
+            bn::fixed y = sprite.y();
 
             // Update x position by adding speed
             x += x_speed;
+
+            // Update y position by adding speed
+            y += y_speed;
 
             // If we've gone off the screen on the right
             if(x > MAX_X) {
                 // Snap back to screen and reverse direction
                 x = MAX_X;
-                x_speed *=-1;
+                x_speed *= -1;
             }
             // If we've gone off the screen on the left
             if(x < MIN_X) {
@@ -60,7 +64,21 @@ class Bouncer {
                 x_speed *= -1;
             }
 
+            if(y > MAX_Y) {
+                // Snap back to screen and reverse direction
+                y = MAX_Y;
+                y_speed *= -1;
+            }
+
+            
+            if(y < MIN_Y) {
+                // Snap back to screen and reverse direction
+                y = MIN_Y;
+                y_speed *= -1;
+            }
+
             sprite.set_x(x);
+            sprite.set_y(y);
             
         }
 
