@@ -16,8 +16,11 @@ YOU MUST BE MAKING FREQUENT COMMITS THROUGHOUT!
 1. Move the updating logic to a member function.
 
 ## Required Homework Steps
-1. Refactor the average function to use the Bouncer class. and uncomment the call to it.
+1. Refactor the average function to use the Bouncer class. and uncomment the call to it.  DONE
+
 1. Add a y_speed and change the update member function to make the Bouncer move in two dimensions.
+
+
 1. Make the x_speed and y_speed start as random values. I strongly recommend looking at the Butano random examples and [documentation](https://gvaliente.github.io/butano/classbn_1_1random.html)! Hint: you will need to re-use the same bn::random instance repeatedly to get different random values.
     
     If all is working well at this point you should see behavior that looks like this:

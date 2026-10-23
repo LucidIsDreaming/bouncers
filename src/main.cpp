@@ -30,10 +30,12 @@ class Bouncer {
         bn::sprite_ptr sprite;
         bn::fixed x_speed;
 
+        bn::fixed y_speed;
+
         //create a constructor 
         Bouncer(bn::fixed x_start, bn::fixed y_start) : 
             sprite(bn::sprite_items::dot.create_sprite(x_start, y_start)), 
-            x_speed(BASE_SPEED) {
+            x_speed(BASE_SPEED), y_speed(BASE_SPEED) {
 
 
         }
