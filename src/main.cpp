@@ -112,14 +112,14 @@ int main() {
             add_bouncer(bouncers, 0, y_spawn);
         }
 
-/*
+
         // if B is pressed print the average to the console
         if(bn::keypad::b_pressed()) {
-            bn::fixed x_average = average_x(sprites);
+            bn::fixed x_average = average_x(bouncers);
 
             BN_LOG("Average x: ", x_average);
         } 
-*/
+
 
         for(Bouncer& b : bouncers) {
             b.update();
