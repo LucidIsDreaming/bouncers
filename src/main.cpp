@@ -106,10 +106,10 @@ bn::fixed average_x(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers){
     return x_average;
 }
 
-void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::fixed start_x, bn::fixed start_y){
+void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::fixed start_x, bn::fixed start_y, bn::random& random){
     // Only add if we're below the maximum
     if(bouncers.size() < bouncers.max_size()) {
-        bouncers.push_back(Bouncer(start_x, start_y));
+        bouncers.push_back(Bouncer(start_x, start_y, random));
     }
 
 
@@ -118,6 +118,7 @@ void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::fixed start_x,
 int main() {
 
     //Make random speed generator
+    bn::random random;
 
 
     bn::core::init();
@@ -134,7 +135,7 @@ int main() {
     while(true) {
         // if A is pressed add a new bouncer
         if(bn::keypad::a_pressed()) {
-            add_bouncer(bouncers, 0, y_spawn);
+            add_bouncer(bouncers, 0, y_spawn, random);
         }
 
 
